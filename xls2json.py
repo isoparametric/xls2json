@@ -152,8 +152,9 @@ class SettingsYaml(object):
             return self.setting_columns[column]
         return None
 
-def xls2fix(s, settings, output_filename):
+def xls2json(s, settings, output_filename):
     json_dict = {}
+    json_array = []
     # 与えられたyamlの設定をしておく
     for row in range(s.nrows):
         rows = []
@@ -236,14 +237,21 @@ def xls2fix(s, settings, output_filename):
         for setting_column in settings.settings_none_exist_columns:
 
             fields[setting_column.name] = str(setting_column.default)
-
-        json_dict[key] = fields
+        # 指定したkeyに代入
+        if key is None:
+            json_dict[key] = fields
+        else:
+            json_array.append(fields)
+        key = None
 
 
     fp = open(output_filename, 'w')
 
     if True:
-        fp.write( json.dumps(json_dict, encoding='utf-8', indent=4 * ' ') )
+        if json_array:
+            fp.write( json.dumps(json_array, encoding='utf-8', indent=4 * ' ') )
+        if json_dict:
+            fp.write( json.dumps(json_dict, encoding='utf-8', indent=4 * ' ') )
     else:
         fp.write( yaml.dump(json_dict, encoding='utf-8', allow_unicode=True) )
     fp.close()
@@ -292,7 +300,7 @@ def main():
         if settings.is_convert_sheet(s):
             print u'Sheet:%s -> %s' % (s.name, output_filename)
             settings.setting_convert_sheet(s)
-            xls2fix(s, settings, output_filename)
+            xls2json(s, settings, output_filename)
 
 if __name__ == '__main__':
     try:
