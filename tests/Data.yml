@@ -1,0 +1,36 @@
+table:
+  out-type: json
+  sheet: ユニット
+  row: 2 # 定義開始行
+  columns:
+    - name: define
+      column: 定義
+      type: key
+      
+    - name: name # json側の定義名
+      column: 名前 # Excel側の定義名
+      type: string # string はデータを文字列だと見なす
+
+    - name: strength
+      column: 力
+      type: int # int はデータを数値だと見なす
+
+    - name: magic
+      column: 魔力
+      type: int
+      
+    - name: vitality
+      column: 体力
+      type: int
+
+    - name: defense
+      column: 防御
+      type: int
+
+    - name: agility
+      column: 素早さ
+      type: int
+
+    - name: birthday
+      column: 誕生日
+      type: datetime

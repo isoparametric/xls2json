@@ -1,0 +1,83 @@
+[
+    {
+        "birthday": "1979-10-01 00:00:00",
+        "agility": 10,
+        "strength": 100,
+        "magic": 90,
+        "name": "\u6226\u58eb",
+        "vitality": 100,
+        "defense": 20
+    },
+    {
+        "birthday": "1979-12-01 00:00:00",
+        "agility": 20,
+        "strength": 120,
+        "magic": 80,
+        "name": "\u5927\u6226\u58eb",
+        "vitality": 200,
+        "defense": 30
+    },
+    {
+        "birthday": "1979-09-01 00:00:00",
+        "agility": 30,
+        "strength": 100,
+        "magic": 20,
+        "name": "\u30a2\u30fc\u30c1\u30e3\u30fc",
+        "vitality": 300,
+        "defense": 40
+    },
+    {
+        "birthday": "1979-03-01 00:00:00",
+        "agility": 40,
+        "strength": 80,
+        "magic": 100,
+        "name": "\u30d7\u30ea\u30fc\u30b9\u30c8",
+        "vitality": 40,
+        "defense": 50
+    },
+    {
+        "birthday": "1979-02-01 00:00:00",
+        "agility": 50,
+        "strength": 90,
+        "magic": 40,
+        "name": "\u30af\u30ec\u30ea\u30c3\u30af",
+        "vitality": 20,
+        "defense": 70
+    },
+    {
+        "birthday": "2010-10-01 00:00:00",
+        "agility": 60,
+        "strength": 40,
+        "magic": 20,
+        "name": "\u30a6\u30a3\u30b6\u30fc\u30c9",
+        "vitality": 30,
+        "defense": 80
+    },
+    {
+        "birthday": "1979-05-01 00:00:00",
+        "agility": 70,
+        "strength": 50,
+        "magic": 30,
+        "name": "\u30de\u30b8\u30b7\u30e3\u30f3",
+        "vitality": 40,
+        "defense": 100
+    },
+    {
+        "birthday": "2000-10-01 00:00:00",
+        "agility": 80,
+        "strength": 60,
+        "magic": 40,
+        "name": "\u30c9\u30e9\u30b0\u30fc\u30f3",
+        "vitality": 50,
+        "defense": 20
+    },
+    {
+        "birthday": "2010-10-01 00:00:00",
+        "agility": 90,
+        "strength": 80,
+        "magic": 50,
+        "name": "\u30e9\u30f3\u30b5\u30fc",
+        "vitality": 60,
+        "defense": 30
+    }
+]
