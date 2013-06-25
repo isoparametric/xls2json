@@ -238,7 +238,7 @@ def xls2json(s, settings, output_filename):
 
             fields[setting_column.name] = str(setting_column.default)
         # 指定したkeyに代入
-        if key is None:
+        if key is not None:
             json_dict[key] = fields
         else:
             json_array.append(fields)
