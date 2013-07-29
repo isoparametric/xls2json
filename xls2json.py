@@ -79,7 +79,6 @@ class SettingsYaml(object):
                         key = sheet.cell(row, key_column_index).value
                         if key != '':
                             value = sheet.cell(row, value_column_index).value
-                            #print u'%s:%s' % (key, value)
                             try:
                                 map[key] = int(value)
                             except ValueError:
@@ -172,14 +171,20 @@ def xls2json(s, settings, output_filename):
                 # コンバート対象カラム
                 value = col
                 if setting_column.type == 'key':
-                    pass
+                    try:
+                        value = int(col)
+                    except ValueError:
+                        pass
                 elif setting_column.type == 'datetime':
                     if value != '':
                         value = str(datetime.datetime(*xldate_as_tuple(value, 0)))
                     else:
                         value = None
                 elif setting_column.type == 'string':
-                    pass
+                    try:
+                        value = str(int(value))
+                    except ValueError:
+                        pass
                 elif setting_column.type == 'int':
                     try:
                         if col == u'':
