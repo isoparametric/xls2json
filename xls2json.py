@@ -170,6 +170,23 @@ def xls2json(s, settings, output_filename):
             if setting_column:
                 # コンバート対象カラム
                 value = col
+
+                #==置き換え定義があるなら置き換える
+                replace_value_import = setting_column.column.get('replace_value_import')
+                if replace_value_import:
+                    import_file = settings.path + replace_value_import
+                    try:
+                        f = open(import_file)
+                        r = yaml.load(f.read())
+                        replace_value = r
+                    except IOError:
+                        print >> sys.stderr, u'[%s]を開くことができない' % (import_file)
+                else:
+                    replace_value = setting_column.column.get('replace_value')
+
+                if replace_value and not replace_value.get(value) is None:
+                    value = replace_value[value]
+
                 if setting_column.type == 'key':
                     try:
                         value = int(col)
@@ -190,7 +207,7 @@ def xls2json(s, settings, output_filename):
                         if col == u'':
                             value = 0
                         else:
-                            value = int(col)
+                            value = int(value)
                     except ValueError, UnicodeEncodeError:
                         # 置換できなかった場合、import_dictの中に変換可能なカラムがあるかをチェック
                         if setting_column.name in settings.import_dict:
