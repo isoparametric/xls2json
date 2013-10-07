@@ -7,6 +7,7 @@ from argparse import ArgumentParser
 import os.path
 import datetime
 import simplejson as json
+import codecs
 
 def to_colx(colname):
     a2z = 'ABCDEFGHIJLKMNOPQRSTUVWXYZ'
@@ -279,6 +280,8 @@ def xls2json(s, settings, output_filename):
     fp.close()
 
 def main():
+
+    sys.stdout = codecs.getwriter('utf-8')(sys.stdout)
 
     parser = ArgumentParser()
     parser.add_argument('input_filename')
